@@ -1,4 +1,1 @@
-const usuario = require('../db/usuario')
-
-
-
+const usuario = require('../db/datos')
