@@ -3,11 +3,11 @@
 // y en “mi perfil”.
 
 const usuario = {
-    email: '',
-    usuario: '',
+    email: 'mstoessel@gmail.com',
+    usuario: 'triple t',
     contraseña: '',
-    nacimiento: 0,
-    documento: 0,
+    nacimiento: "21/03/1997",
+    documento: 41123456,
     perfil: '',
 }
 

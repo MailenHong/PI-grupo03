@@ -1,0 +1,1 @@
+const producto = require('../db/producto')
