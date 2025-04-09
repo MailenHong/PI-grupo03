@@ -154,11 +154,10 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/products/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 100px;
+  height: 200px;
 }
 
 
