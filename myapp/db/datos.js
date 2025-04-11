@@ -2,7 +2,7 @@ const datos = {
     usuario: {
         email: 'mstoessel@gmail.com',
         usuario: 'triple t',
-        contraseña: '',
+        contraseña: 'TTT',
         nacimiento: "21/03/1997",
         documento: 41123456,
         perfil: '',
@@ -10,7 +10,7 @@ const datos = {
     productos: [
         {
             id: 1,
-            imagen: '/images/products/img1.jpg',
+            imagen: 'img1.jpg',
             nombre: "Azara",
             descripcion: "Descripción del producto",
             comentarios: [
@@ -23,7 +23,7 @@ const datos = {
         },
         {
             id: 2,
-            imagen: '/images/products/img2.jpg',
+            imagen: 'img2.jpg',
             nombre: "Maika",
             descripcion: "Descripción del producto",
             comentarios: [
@@ -36,7 +36,7 @@ const datos = {
         },
         {
             id: 3,
-            imagen: '/images/products/img3.jpg',
+            imagen: 'img3.jpg',
             nombre: "Kaïra",
             descripcion: "Descripción del producto",
             comentarios: [
@@ -49,7 +49,7 @@ const datos = {
         },
         {
             id: 4,
-            imagen: '/images/products/img4.jpg',
+            imagen: 'img4.jpg',
             nombre: "Indra",
             descripcion: "Descripción del producto",
             comentarios: [
@@ -62,7 +62,7 @@ const datos = {
         },
         {
             id: 5,
-            imagen: '/images/products/img5.jpg',
+            imagen: 'img5.jpg',
             nombre: "Ishani",
             descripcion: "Descripción del producto",
             comentarios: [
@@ -75,7 +75,7 @@ const datos = {
         },
         {
             id: 6,
-            imagen: '/images/products/img6.jpg',
+            imagen: 'img6.jpg',
             nombre: "Noora",
             descripcion: "Descripción del producto",
             comentarios: [
@@ -88,7 +88,7 @@ const datos = {
         },
         {
             id: 7,
-            imagen: '/images/products/img7.jpg',
+            imagen: 'img7.jpg',
             nombre: "Nahla",
             descripcion: "Descripción del producto",
             comentarios: [
@@ -101,7 +101,7 @@ const datos = {
         },
         {
             id: 8,
-            imagen: '/images/products/img8.jpg',
+            imagen: 'img8.jpg',
             nombre: "Rashida",
             descripcion: "Descripción del producto",
             comentarios: [
@@ -114,7 +114,7 @@ const datos = {
         },
         {
             id: 9,
-            imagen: '/images/products/img9.jpg',
+            imagen: 'img9.jpg',
             nombre: "Leika",
             descripcion: "Descripción del producto",
             comentarios: [
@@ -127,7 +127,7 @@ const datos = {
         },
         {
             id: 10,
-            imagen: '/images/products/img10.jpg',
+            imagen: 'img10.jpg',
             nombre: "Ishani", 
             descripcion: "Descripción del producto",
             comentarios: [

@@ -2,62 +2,49 @@
 <html lang="es">
 <!-- Include Head -->
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="/images/logo.png" />
+<%- include('./partials/head') %>
 
-	<title>RÜMA</title>
-	<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="./css/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/app.css">
-</head>
+	<body>
 
-<body>
-	<%- include('partials/header') %>
+		<%- include('./partials/header') %>
 
-		<!-- Banner -->
-		<div class="banner">
-			<img src="/images/banner.png" alt="Banner">
-		</div>
-		<!-- /Banner -->
-
-		<!-- Novedades -->
-		<div class="container products-wrapper">
-
-			<div class="row">
-				<% for( let i=0; i < productos.length; i++ ) { %>
-					<div class="col-12 col-sm-6 col-lg-3">
-						<section class="product-box">
-							<a href="/products/detalle/<%= productos[i].id %>">
-								<figure class="product-box_image">
-									<img src="<%= productos[i].imagen %>" alt="<%= productos[i].nombre %>">
-								</figure>
-								<article class="product-box_data">
-									<h2>
-										<%= productos[i].nombre %>
-									</h2>
-									<p>
-										<%= productos[i].descripcion %>
-									</p>
-									<p>
-										<%= productos[i].comentarios %>
-									</p>
-								</article>
-							</a>
-						</section>
-					</div>
-					<% } %>
+			<!-- Banner -->
+			<div class="banner">
+				<img src="/images/banner.png" alt="Banner">
 			</div>
-		</div>
+			<!-- /Banner -->
+			<!-- Novedades -->
+			<div class="container products-wrapper">
 
 
-		<%- include('partials/footer') %>
+				<div class="row">
+					<% for( let i=0; i < 4; i++ ) { %>
+						<div class="col-12 col-sm-6 col-lg-3">
+							<section class="product-box">
+								<a href="/products/<%= productos[i].id %>">
+									<figure class="product-box_image">
+										<img src="/images/products/<%= productos[i].imagen %>" alt="<%= productos[i].nombre %>">
+									</figure>
+									<article class="product-box_data">
+										<h2>
+											<%= productos[i].nombre %>
+										</h2>
+										<p>
+											<%= productos[i].descripcion %>
+										</p>
+										<p>
+											<%= productos[i].comentarios %>
+										</p>
+									</article>
+								</a>
+							</section>
+						</div>
+						<% } %>
+				</div>
+			</div>
+			<%- include('./partials/footer') %>
 
 
-</body>
+	</body>
 
 </html>
