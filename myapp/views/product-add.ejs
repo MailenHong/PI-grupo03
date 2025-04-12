@@ -3,45 +3,34 @@
 <!-- Include Head -->
 <%- include('./partials/head') %>
 
+
 <body>
-	<!-- Header -->
-	<%- include('partials/headerLogueado') %>
-	<!-- /Header -->
+    <!-- Header -->
+    <%- include('./partials/headerLogueado') %>
+    <!-- Header -->
 
-	<!-- Agregar producto -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
-			</div>
 
-			<!-- Formulario -->
-			<div class="col-12">
-				<form action="/product/add" method="GET" enctype="multipart/form-data" class="form-add-producto">
-					<div class="form-group">
-						<label for="imagen">Imagen del producto:</label>
-						<input type="file" name="imagen" id="imagen" class="form-control">
-					</div>
+    <!-- Novedades -->
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title">Agregar productos</h2>
+            </div>
+            <!-- Show the "ultimos" products -->
+            <form action="/" method="get">
+                <input type="file" name="" id="">
+                <input type="text" name="nombre" id="" placeholder="nombre">
+                <input type="text" name="descripcion" id="" placeholder="descripcion">
 
-					<div class="form-group">
-						<label for="nombre">Nombre del producto:</label>
-						<input type="text" name="nombre" id="nombre" class="form-control" required>
-					</div>
 
-					<div class="form-group">
-						<label for="descripcion">Descripción del producto:</label>
-						<textarea name="descripcion" id="descripcion" class="form-control" required></textarea>
-					</div>
+                <button type="submit">Enviar</button>
+            </form>
 
-					<button type="submit" class="btn btn-primary mt-3">Agregar producto</button>
-				</form>
-			</div>
-		</div>
-	</div>
 
-	<!-- Footer -->
-	<%- include('partials/footer') %>
-	<!-- Include Footer -->
+    <!-- Include Footer -->
+    <%- include('./partials/footer') %>
+    <!-- Include Footer -->
 </body>
+
 
 </html>
