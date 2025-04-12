@@ -1,9 +1,9 @@
-const producto = require('../db/datos')
+let data = require('../db/datos')
 
-let productController = {
+
+const productController = {
   detalle: function (req, res) {
-    res.render('producto'), {
-    };
+    res.render('product', {producto: data.productos[0]});
   },
 
   agregarProducto: function(req,res){
