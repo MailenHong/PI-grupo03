@@ -5,6 +5,12 @@ const productController = {
     res.render('producto', {
       detalle: datos.productos
     });
+  },
+
+
+  
+  addform: function(req,res){
+    res.render('productAdd');
   }
 };
 
