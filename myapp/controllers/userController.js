@@ -9,7 +9,9 @@ const userController = {
   },
   profile: function (req,res) {
     res.render('profile', {
-        user: datos.usuario
+        usuario: datos.usuario,
+        productos: datos.productos
+        
     });
   }
 };
