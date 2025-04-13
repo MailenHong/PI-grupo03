@@ -12,7 +12,7 @@ const datos = {
             
             imagen: 'img1.jpg',
             nombre: "Azara",
-            descripcion: "Descripción del producto",
+            descripcion: "Diseño clásico con un toque moderno. Compacta, con espacio para todo lo esencial. Ideal para el día a día.",
             comentarios: [
                 {
                     usuario: "PatriGonzalez",
@@ -25,7 +25,7 @@ const datos = {
             
             imagen: 'img2.jpg',
             nombre: "Maika",
-            descripcion: "Descripción del producto",
+            descripcion: "Pequeña, práctica y con mucha onda. Ideal para salidas, conciertos o paseos con amigas.",
             comentarios: [
                 {
                     usuario: "maria_1990",
@@ -38,7 +38,7 @@ const datos = {
             
             imagen: 'img3.jpg',
             nombre: "Kaïra",
-            descripcion: "Descripción del producto",
+            descripcion: "Diseño versátil y elegante para acompañarte en todo momento. Espaciosa por dentro, minimalista por fuera.",
             comentarios: [
                 {
                     usuario: "Camii_20",
@@ -51,7 +51,7 @@ const datos = {
             
             imagen: 'img4.jpg',
             nombre: "Indra",
-            descripcion: "Descripción del producto",
+            descripcion: "Tu nueva favorita para el día a día. Diseño liviano con múltiples compartimentos.",
             comentarios: [
                 {
                     usuario: "valenGago",
