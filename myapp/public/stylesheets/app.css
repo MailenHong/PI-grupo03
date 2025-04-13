@@ -10,7 +10,7 @@
   --gray: #666666;
   --light-gray: #ebebeb;
   --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --base-font-family: Playfair Display;
 }
 
 
@@ -56,7 +56,7 @@ img {
 
 input,
 textarea {
-  font-family: inherit;
+  font-family: Playfair Display;
 }
 
 hr {
@@ -172,6 +172,7 @@ hr {
   font-size: 2.4em;
   font-weight: 400;
   color: var(--gray);
+  font-family: Karla;
 }
 
 .product-box {
@@ -319,6 +320,8 @@ hr {
 .product-detail-title {
   font-weight: 400;
   font-size: 2.8em;
+  font-family: Karla;
+
 }
 
 .product-detail-description {
@@ -424,6 +427,7 @@ hr {
 }
 
 /*====== Formularios ======*/
+
 .form-label {
   display: inline-block;
   font-size: 1.6em;
@@ -452,6 +456,66 @@ textarea.form-input {
   resize: vertical;
   padding: 15px;
 }
+.body-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 1450px;
+  background-color: #f0f0f0;
+}
+.login-container {
+  background-color: #fff;
+  padding: 30px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 800px;
+  max-width: 600px;
+ 
+}
+.form-group {
+  margin-bottom: 15px;
+  font-family: Playfair Display;
+}
+.btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.body_register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  width: 1100px;
+  background-color: #f0f0f0
+}
+.register-container{
+  background-color: #fff;
+  padding: 30px 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 800px;
+  max-width: 600px;
+  
+}
+
+
+
+/* Estilo etiquetas */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 14px;
+}
+
+
 
 /*====== Profile ======*/
 .info-usuario{
@@ -467,6 +531,7 @@ textarea.form-input {
 .main-title{
   font-size: 25px;
   margin-bottom: 10px;
+  font-family: Karla;
 }
 
 .btn{
