@@ -216,13 +216,14 @@ hr {
 }
 
 .product-box_data p {
-  font-size: 1.5em;
+  font-size: 20px;
   width: 100%;
   color: var(--gray);
   margin: 0;
   height: 0;
   transition: 300ms;
   overflow: hidden;
+  
 }
 
 .product-box_data i {
@@ -544,7 +545,9 @@ textarea.form-input {
 }
 
 .foto-perfil{
-  border-radius: 50%;
+  border-radius: 45%;
+  
+
 }
 
 .main-title{

@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
 <!-- Include Head -->
 <%- include('./partials/head') %>
 
 
-<body>
-    <!-- Header -->
-    <%- include('./partials/headerLogueado', {usuario}) %>
-    <!-- Header -->
+    <body>
+        <!-- Header -->
+        <%- include('./partials/headerLogueado', {usuario}) %>
+            <!-- Header -->
 
 
-    <!-- Novedades -->
-    <div class="container products-wrapper">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="products-title">Agregar productos</h2>
-            </div>
-            <!-- Show the "ultimos" products -->
-            <form class="body_register" action="/" method="get">
-                <div class="form-group">
-                    <input type="file" name="" id="">
-                    <input type="text" name="nombre" id="" placeholder="Nombre">
-                    <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
-                    <button  class="btn1" type="submit">Enviar</button>
-                </div>
-            </form>
-
-            
+            <!-- Novedades -->
+            <div class="container products-wrapper">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="products-title">Agregar productos</h2>
+                    </div>
+                    <!-- Show the "ultimos" products -->
+                    <form class="body_register" action="/" method="get">
+                        <div class="form-group">
+                            <input type="file" name="" id="">
+                            <input type="text" name="nombre" id="" placeholder="Nombre">
+                            <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
+                            <button class="btn1" type="submit">Enviar</button>
+                        </div>
+                    </form>
 
 
-    <!-- Include Footer -->
-    <%- include('./partials/footer') %>
-    <!-- Include Footer -->
-</body>
+
+
+                    <!-- Include Footer -->
+                    <%- include('./partials/footer') %>
+                        <!-- Include Footer -->
+    </body>
 
 
 </html>
