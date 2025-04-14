@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+	rel="stylesheet">
 <!-- Include Head -->
 
 <%- include('./partials/head') %>
 
-<body>
-	<%- include('./partials/header') %>
+	<body>
+		<%- include('./partials/header') %>
 
-		<!-- Novedades -->
-		<div class="container products-wrapper">
-			<div class="row">
-				<div class="col-12">
-					<h2 class="products-title">Ingresar</h2>
-				</div>
-				<!-- Show the "ultimos" products -->
-				<!-- <h2 class="col-12"> VER SI LO USAMOS--> 
+			<!-- Novedades -->
+			<div class="container products-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="products-title">Ingresar</h2>
+					</div>
+					<!-- Show the "ultimos" products -->
+					<!-- <h2 class="col-12"> VER SI LO USAMOS-->
 					<main class="body-login">
-					<section class ="login-container">
-					<form action="/" id="login-form" class="login-form">
-						<div class="form-group">
-						<label for="email">Email: </label>
-						<input type="email" id="email" name="email" placeholder = "Ingresá tu correo">
-					</div>
-					<div class="form-group">
-						<label for="contraseña">Contraseña: </label>
-						<input type="password" id="password" name="password" placehlder = "Ingresá tu contraseña">
-					</div>
-					<div class="form-group">
-						<label>
-							<input type="checkbox"> Recordarme
-						</label>
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn"> Ingresar </button>
-					</div>
-					</form>
-				</section>
-			</main>
-				<!--</h2>-->
+						<section class="login-container">
+							<form action="/" id="login-form" class="login-form">
+								<div class="form-group">
+									<label for="email">Email: </label>
+									<input type="email" id="email" name="email" placeholder="Ingresá tu correo"
+										required>
+								</div>
+								<div class="form-group">
+									<label for="contraseña">Contraseña: </label>
+									<input type="password" id="password" name="password"
+										placeholder="Ingresá tu contraseña" required>
+								</div>
+								<div class="form-group">
+									<label>
+										<input class="recordame" type="checkbox"> Recordarme
+									</label>
+								</div>
+								<div class="form-group">
+									<button type="submit" class="btn1"> Ingresar </button>
+								</div>
+							</form>
+						</section>
+					</main>
+					<!--</h2>-->
 
-		<%- include('./partials/footer') %>
+					<%- include('./partials/footer') %>
 
-</body>
+	</body>
 
 </html>

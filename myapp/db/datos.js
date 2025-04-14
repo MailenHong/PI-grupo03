@@ -64,7 +64,7 @@ const datos = {
             id: 5,
             imagen: 'img5.jpg',
             nombre: "Ishani",
-            descripcion: "Descripción del producto",
+            descripcion: "Mini cartera bordó con textura de serpiente y cadena metálica.",
             comentarios: [
                 {
                     usuario: "NoeliaBags",
@@ -77,7 +77,7 @@ const datos = {
             
             imagen: 'img6.jpg',
             nombre: "Noora",
-            descripcion: "Descripción del producto",
+            descripcion: "Sobre animal print con solapa.",
             comentarios: [
                 {
                     usuario: "tatiart",
@@ -90,7 +90,7 @@ const datos = {
           
             imagen: 'img7.jpg',
             nombre: "Nahla",
-            descripcion: "Descripción del producto",
+            descripcion: "Bolso tote negro, amplio y práctico.",
             comentarios: [
                 {
                     usuario: "Norma20__",
@@ -103,7 +103,7 @@ const datos = {
          
             imagen: 'img8.jpg',
             nombre: "Rashida",
-            descripcion: "Descripción del producto",
+            descripcion: "Cartera marrón tipo cocodrilo, compacta.",
             comentarios: [
                 {
                     usuario: "sofi_vintage",
@@ -116,7 +116,7 @@ const datos = {
             
             imagen: 'img9.jpg',
             nombre: "Leika",
-            descripcion: "Descripción del producto",
+            descripcion: "Baguette crema con hebilla grande.",
             comentarios: [
                 {
                     usuario: "mariafit",
@@ -129,7 +129,7 @@ const datos = {
             
             imagen: 'img10.jpg',
             nombre: "Ishani", 
-            descripcion: "Descripción del producto",
+            descripcion: "Mini sobre charol negro con broche.",
             comentarios: [
                 {
                     usuario: "clau_mOda",
