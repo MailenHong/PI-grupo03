@@ -11,7 +11,6 @@ const userController = {
     res.render('profile', {
       usuario: datos.usuario,
       productos: datos.productos
-
     });
   }
 };
