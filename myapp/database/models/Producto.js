@@ -20,13 +20,13 @@ module.exports = function (sequelize, DataTypes) {
         descripcion: {
             type: DataTypes.TEXT,
         },
-        createdat: {
+        created_at: {
             type: DataTypes.DATE,
         },
-        updatedat: {
+        updated_at: {
             type: DataTypes.DATE,
         },
-        deletedat: {
+        deleted_at: {
             type: DataTypes.DATE,
         }
     };

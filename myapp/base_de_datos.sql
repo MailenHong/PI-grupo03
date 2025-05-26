@@ -9,9 +9,9 @@ create table usuarios (
     fecha date not null,
     dni int unsigned not null unique,
     fotodeperfil varchar(255),
-    createdat timestamp default current_timestamp,
-    updatedat timestamp default current_timestamp on update current_timestamp,
-    deletedat timestamp null on update current_timestamp
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp on update current_timestamp,
+    deleted_at timestamp null on update current_timestamp
 );
 
 create table productos (
@@ -20,9 +20,9 @@ create table productos (
     imagen varchar(255),
     nombre varchar(255),
     descripcion text,
-    createdat timestamp default current_timestamp,
-    updatedat timestamp default current_timestamp on update current_timestamp,
-    deletedat timestamp null on update current_timestamp,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp on update current_timestamp,
+    deleted_at timestamp null on update current_timestamp,
     foreign key (usuario_id) references usuarios(id)
 );
 
@@ -31,9 +31,9 @@ create table comentarios (
     producto_id int unsigned not null,
     usuario_id int unsigned not null,
     texto text,
-    createdat timestamp default current_timestamp,
-    updatedat timestamp default current_timestamp on update current_timestamp,
-    deletedat timestamp null on update current_timestamp,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp on update current_timestamp,
+    deleted_at timestamp null on update current_timestamp,
     foreign key (producto_id) references productos(id),
     foreign key (usuario_id) references usuarios(id)
 );
