@@ -30,6 +30,7 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.DATE,
         }
     };
+    
     let config = {
         tableName: 'comentarios',
         timestamps: true,
