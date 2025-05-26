@@ -41,12 +41,12 @@ module.exports = function (sequelize, dataTypes) {
     Comentario.associate = function (models) {
         Comentario.belongsToMany(models.Usuario, {
             as: "usuarios",
-            foreignKey: "comentario_id"
+            foreignKey: "usuario_id"
         });
 
          Comentario.belongsToMany(models.Producto,{
             as:"productos",
-            foreignKey: "comentario_id"
+            foreignKey: "producto_id"
     });
     };
   
