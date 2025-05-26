@@ -1,4 +1,4 @@
-let data = require('../db/datos')
+let data = require('../db/datos');
 
 const productController = {
   detalle: function (req, res) {
