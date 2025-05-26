@@ -49,8 +49,6 @@ module.exports = function (sequelize, dataTypes) {
             foreignKey: "comentario_id"
     });
     };
-
-
-
+  
     return Comentario;
 }
