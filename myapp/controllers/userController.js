@@ -13,8 +13,8 @@ const userController = {
   createRegister: function(req,res){
     let usuario = req.body.usuario;
     let email = req.body.email;
-    let password = req.body.password;
-    let date = req.body.date;
+    let contrasena = req.body.contraseña;
+    let fecha = req.body.fecha;
     let error = {};
     let existenErrores = false;
 
@@ -27,28 +27,30 @@ const userController = {
       error.email = "El correo electrónico es obligatorio";
       existenErrores = true;
     }
-    if (password == "" || password.length < 3){
-      error.password = "La contraseña es obligatoria y debe tener al menos 3 caracteres"
+    if (contrasena == "" || contrasena.length < 3){
+      error.contrasena = "La contraseña es obligatoria y debe tener al menos 3 caracteres"
       existenErrores = true;
     }
-    if (date == ""){
-      error.date = "La fecha de nacimiento es obligatoria";
+    if (fecha == ""){
+      error.fecha = "La fecha de nacimiento es obligatoria";
       existenErrores = true;
     }
     if (existenErrores){
       return res.render ("register", {error});
     }
+    
     datos.Usuario.findOne({ where: { email:email} })
      .then(function(user){
       if (user){
         error.email = "El correo electrónico ya se encuentra registrado!";
         return res.render("register", {error});
       }
-     
+
      let newUser =  {
       usuario: usuario,
       email: email,
-      password: bcryptjs.hashSync(password,10),
+      contrasena: bcryptjs.hashSync(contrasena,10),
+      fecha: fecha,
     };
      datos.Usuario.create(newUser)
       .then(function(results){
@@ -58,28 +60,44 @@ const userController = {
       res.send(err);
     });
   });
-  
-    
-  },
- showLogin: function(req, res){
+
+},
+
+showLogin: function(req, res){
   if (req.session.usuario != undefined){
-    return res.redirect('/profile')
+    return res.redirect('/')
   } else {
     return res.render('login', {error: {}} );
   }
-
-
  },
- 
+
  createLogin: function(req,res){
   let email = req.body.email;
-  let password = req.body.password;
+  let contrasena = req.body.contraseña;
+  let recordarme = req.body.recordarme;
   let error = {};
-  let existenErrores = false;
 
+  datos.Usuario.findOne({where: {email:email}})
+   .then(function(user){
+     if(user == null){
+      error.email = "Este correo no se encuentra registrado!"
+      return res.render('login', {error} )
+    }
 
+    let validacion = bcrypt.compareSync(contrasena, user.contrasena)
+    if(!validacion){
+      error.contrasena = "La contraseña es incorrecta";
+      return res.render('login', {error})
+    }
+    req.session.usuario = user;
+
+    if (recordarme != undefined){
+      res.cookie('user', user, {maxAge: 150000});
+    }
+     return res.redirect('/perfil')
+  });
  }
-}
+};
 
   
 
