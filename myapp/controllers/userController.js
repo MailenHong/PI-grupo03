@@ -2,7 +2,7 @@ const datos = require('../database/models');
 const bcryptjs = require('bcryptjs');
 
 const userController = {
-  show: function(req,res){
+  showRegister: function(req,res){
     if (req.session.usuario !== undefined){
       return res.redirect('/profile' + req.session.usuario.id)
     } else {
@@ -10,7 +10,7 @@ const userController = {
     }
   },
 
-  create: function(req,res){
+  createRegister: function(req,res){
     let usuario = req.body.usuario;
     let email = req.body.email;
     let password = req.body.password;
@@ -61,7 +61,24 @@ const userController = {
   
     
   },
+ showLogin: function(req, res){
+  if (req.session.usuario != undefined){
+    return res.redirect('/profile')
+  } else {
+    return res.render('login', {error: {}} );
+  }
+
+
+ },
  
+ createLogin: function(req,res){
+  let email = req.body.email;
+  let password = req.body.password;
+  let error = {};
+  let existenErrores = false;
+
+
+ }
 }
 
   
