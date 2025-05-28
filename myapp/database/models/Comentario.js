@@ -31,13 +31,24 @@ module.exports = function (sequelize, dataTypes) {
 
     let config = {
         tableName: 'comentarios',
-        timestamps: true,
+        timestamps: false,
         underscored: true
     };
     
     let Comentario = sequelize.define(alias, cols, config);
     
-    Comentario.associate = function (models) {
+    Comentario.associate = function(models){
+        Comentario.belongsTo(models.Usuario, {
+            as: "usuario",
+            foreignKey: 'usuario_id'
+        });
+
+        Comentario.belongsTo(models.Producto, {
+            as: 'producto',
+            foreignKey: "producto_id"
+        });
+    };
+    /*Comentario.associate = function (models) {
         Comentario.belongsToMany(models.Usuario, {
             as: "usuarios",
             through: "UsuarioComentario",
@@ -52,6 +63,6 @@ module.exports = function (sequelize, dataTypes) {
             otherKey: "producto_id"
     });
     };
-  
+  */
     return Comentario;
 }
