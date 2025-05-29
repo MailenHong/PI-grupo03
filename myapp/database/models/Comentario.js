@@ -4,39 +4,40 @@ module.exports = function (sequelize, dataTypes) {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
         },
         producto_id: {
-            type: dataTypes.INTEGER.UNSIGNED,
-           
+            type: DataTypes.INTEGER.UNSIGNED,
+
         },
         usuario_id: {
-            type: dataTypes.INTEGER.UNSIGNED,
-       
+            type: DataTypes.INTEGER.UNSIGNED,
+
         },
         texto: {
-            type: dataTypes.TEXT,
+            type: DataTypes.TEXT,
         },
-        created_at: {
-            type: dataTypes.DATE,          
+        createdAt: {
+            type: DataTypes.DATE,
         },
-        updated_at: {
-            type: dataTypes.DATE,
-            
+        updatedAt: {
+            type: DataTypes.DATE,
+
         },
-        deleted_at: {
-            type: dataTypes.DATE,
+        deletedAt: {
+            type: DataTypes.DATE,
         }
     };
 
     let config = {
         tableName: 'comentarios',
         timestamps: true,
-        underscored: true
+
+        underscored: false
     };
-    
+
     let Comentario = sequelize.define(alias, cols, config);
-    
+
     Comentario.associate = function (models) {
         Comentario.belongsToMany(models.Usuario, {
             as: "usuarios",
@@ -45,13 +46,13 @@ module.exports = function (sequelize, dataTypes) {
             otherKey: "usuario_id"
         });
 
-         Comentario.belongsToMany(models.Producto,{
-            as:"productos",
+        Comentario.belongsToMany(models.Producto, {
+            as: "productos",
             through: "ComentarioProducto",
             foreignKey: "comentario_id",
             otherKey: "producto_id"
-    });
+        });
     };
-  
+
     return Comentario;
 }

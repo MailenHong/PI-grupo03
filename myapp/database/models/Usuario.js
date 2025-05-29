@@ -4,45 +4,44 @@ module.exports = function (sequelize, dataTypes) {
         id: {
             autoIncrement: true,
             primaryKey: true,
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
         },
         email: {
-            type: dataTypes.STRING(255),
+            type: DataTypes.STRING(255),
             unique: true, 
         },
         usuario: {
-            type: dataTypes.STRING(255),
+            type: DataTypes.STRING(255),
         },
         contraseña: {
-            type: dataTypes.STRING(255),
+            type: DataTypes.STRING(255),
         },
         fecha: {
-            type: dataTypes.DATEONLY,
+            type: DataTypes.DATEONLY,
         },
         dni: {
-            type: dataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER.UNSIGNED,
             unique: true,
         },
         fotodeperfil: {
-            type: dataTypes.STRING(255),
+            type: DataTypes.STRING(255),
         },
-        created_at: {
-            type: dataTypes.DATE,
-    
+        createdAt: {
+            type: DataTypes.DATE,          
         },
-        updated_at: {
-            type: dataTypes.DATE,
-        
+        updatedAt: {
+            type: DataTypes.DATE,
+            
         },
-        deleted_at: {
-            type: dataTypes.DATE,
+        deletedAt: {
+            type: DataTypes.DATE,
         }
     };
 
     let config = {
         tableName: 'usuarios',
         timestamps: true,
-        underscored: true
+        underscored: false
              
     };
 
