@@ -20,13 +20,14 @@ module.exports = function (sequelize, DataTypes) {
         descripcion: {
             type: DataTypes.TEXT,
         },
-        created_at: {
+        createdAt: {
             type: DataTypes.DATE,
         },
-        updated_at: {
+        updatedAt: {
             type: DataTypes.DATE,
+
         },
-        deleted_at: {
+        deletedAt: {
             type: DataTypes.DATE,
         }
     };
@@ -34,7 +35,8 @@ module.exports = function (sequelize, DataTypes) {
     let config = {
         tableName: "productos",
         timestamps: true,
-        underscored: true
+
+        underscored: false
     };
 
     let Producto = sequelize.define(alias, cols, config);
@@ -45,10 +47,10 @@ module.exports = function (sequelize, DataTypes) {
             foreignKey: "usuario_id"
         });
 
-         Producto.hasMany(models.Comentario,{
-            as:"comentarios",
+        Producto.hasMany(models.Comentario, {
+            as: "comentarios",
             foreignKey: "producto_id"
-    });
+        });
     };
 
     return Producto;
