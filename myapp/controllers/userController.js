@@ -13,7 +13,7 @@ const userController = {
   createRegister: function(req,res){
     let usuario = req.body.usuario;
     let email = req.body.email;
-    let contrasena = req.body.contraseña;
+    let contrasena = req.body.contrasena;
     let fecha = req.body.fecha;
     let error = {};
     let existenErrores = false;
@@ -73,7 +73,7 @@ showLogin: function(req, res){
 
  createLogin: function(req,res){
   let email = req.body.email;
-  let contrasena = req.body.contraseña;
+  let contrasena = req.body.contrasena;
   let recordarme = req.body.recordarme;
   let error = {};
 
