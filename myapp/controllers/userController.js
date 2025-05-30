@@ -16,6 +16,7 @@ const userController = {
     let email = req.body.email;
     let contrasena = req.body.contrasena;
     let fecha = req.body.fecha;
+    let dni = req.body.dni;
     let error = {};
     let existenErrores = false;
 
@@ -36,6 +37,10 @@ const userController = {
       error.fecha = "La fecha de nacimiento es obligatoria";
       existenErrores = true;
     }
+    if(dni == ""){
+      error.dni = "Campo obligatorio"
+      existenErrores= true;
+    }
     if (existenErrores){
       return res.render ("register", {error});
     }
@@ -52,6 +57,7 @@ const userController = {
       email: email,
       contrasena: bcryptjs.hashSync(contrasena,10),
       fecha: fecha,
+      dni: dni,
     };
      datos.Usuario.create(newUser)
       .then(function(results){
