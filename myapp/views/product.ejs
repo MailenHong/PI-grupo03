@@ -1,72 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-    rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-    href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-    rel="stylesheet">
-<!-- Include Head -->
-<%- include('./partials/head') %>
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
 
+  <!-- Head -->
+  <%- include('./partials/head') %>
 
-    <body class="product-page">
-        <!-- Header -->
-        <%- include('./partials/header') %>
-            <!-- Header -->
+  <body class="product-page">
+    <!-- Header -->
+    <%- include('./partials/header') %>
 
+    <!-- Detalle del producto -->
+    <div class="container products-wrapper">
+      <div class="d-flex align-items-center">
+        <h2 class="products-title"><%= producto.nombre %></h2>
+        <% if (usuario && usuario.id === producto.usuario_id) { %>
+          <p class="product-detail-description">
+            <a href="/product/agregarProducto/">Editar</a>
+          </p>
+        <% } %>
+      </div>
 
-            <!-- product detail -->
-            <div class="container products-wrapper">
-                <div class="d-flex align-items-center">
-                    <h2 class="products-title">Nombre del producto</h2>
-                    <p class="product-detail-description">
-                        <a href="/product/agregarProducto/">Editar</a>
-                    </p>
-                </div>
-                <div class="product-detail">
-                    <div class="row">
-                        <article class="col-12 col-lg-8 product-detail-info">
-                            <img src="/images/products/<%= producto.imagen %>" alt="" class="product-detail-img">
-                            <p class="product-detail-description">
-                                <%= producto.descripcion %>
-                            </p>
-                        </article>
-                        <div class="col-12 col-lg-4">
-                            <section class="comments">
-                                <% for (let i=0; i < producto.comentarios.length; i++) { %>
-                                    <article>
-                                        <img src='/images/users/<%= producto.comentarios[i].imagenPerfil%>' alt="">
-                                        <div class="data">
-                                            <p class="user">
-                                                <strong> <a href="profile.html">
-                                                        <%= producto.comentarios[i].usuario %>
-                                                    </a> </strong>
-                                                <%= producto.comentarios[i].texto %>
-                                            </p>
-                                        </div>
-                                    </article>
-                                    <%} %>
-                            </section>
-                            <form class="form" action="" method="GET">
-                                <input class="form-input" type="text" value="" placeholder="Agregar comentario">
-                                <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-                            </form>
-                            <hr>
-                        </div>
+      <div class="product-detail">
+        <div class="row">
+          <article class="col-12 col-lg-8 product-detail-info">
+            <img src="/images/products/<%= producto.imagen %>" alt="<%= producto.nombre %>" class="product-detail-img" />
+            <p class="product-detail-description">
+              <%= producto.descripcion %>
+            </p>
+          </article>
+
+          <div class="col-12 col-lg-4">
+            <section class="comments">
+              <% if (producto.comentarios && producto.comentarios.length > 0) { %>
+                <% for (let i = 0; i < producto.comentarios.length; i++) { %>
+                  <article class="mb-3">
+                    <img src="/images/users/<%= producto.comentarios[i].usuario.fotodeperfil %>" alt="Foto de <%= producto.comentarios[i].usuario.usuario %>" class="img-thumbnail" style="width: 40px; height: 40px; object-fit: cover;" />
+                    <div class="data">
+                      <p class="user mb-1">
+                        <strong><%= producto.comentarios[i].usuario.usuario %>:</strong>
+                        <%= producto.comentarios[i].texto %>
+                      </p>
                     </div>
-                </div>
-            </div>
-            <!-- /product detail -->
+                  </article>
+                <% } %>
+              <% } else { %>
+                <p>No hay comentarios todavía.</p>
+              <% } %>
+            </section>
 
+            <!-- Formulario para agregar comentario -->
+            <form class="form mt-4" action="" method="POST">
+              <input class="form-input w-100 mb-2" type="text" name="comentario" placeholder="Agregar comentario" required />
+              <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+            </form>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Detalle del producto -->
 
-            <%- include('./partials/footer') %>
-
-
-    </body>
-
-
+    <!-- Footer -->
+    <%- include('./partials/footer') %>
+  </body>
 </html>

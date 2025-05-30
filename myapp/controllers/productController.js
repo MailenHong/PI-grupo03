@@ -4,55 +4,40 @@ let Producto = db.Producto;
 const productController = {
 
   lista: function (req, res) {
-  Producto.findAll({
-    include: [{association:'usuario'}]
-  })
-      .then(function(productos){
-        res.render("listaDeProductos",{productos:productos})
-      })
-      .catch(error=>{
-        console.error(error);
-        res.status(500).send("Error no se puede obtener ningun producto");
-      });
-      
-  },
-
-
-  detalle: function (req, res) {
-    Producto.findByPk(req.params.id,{
-      include:[
-        {association:'usuario'},
-        {
-          association:'comentarios',
-          include:[{association: 'usuario'}]
-        }
-      ]
+    Producto.findAll({
+      include: [{ association: "usuario" }]
     })
-
-
-    .then(producto => {
-      if (producto) {
-        res.render('product', { producto });
-      } else {
-        res.status(404).send("Producto no encontrado");
-      }
+    .then(function (productos) {
+      res.render("listaDeProductos", { productos: productos });
     })
-
-
-    .catch(error => {
-      console.error(error);
-      res.status(500).send("Error en cargar el producto");
+    .catch(function (error) {
+      res.send("Error no se puede obtener ningún producto");
     });
   },
 
-  
+detalle: function (req, res) {
+  Producto.findByPk(req.params.id, {
+    include: [
+      {association: 'usuario' },
+      {association: 'comentarios',
+        include: [{ association: 'usuario' }]
+      }
+    ]
+  })
+  .then(function (producto) {
+  res.render("product", {
+  producto: producto,
+  usuario: req.session.user});
+})
+  .catch(function (error) {
+    res.send("Error de obtener el producto");
+  });
+},
+
   agregarProducto: function (req, res) {
-    if (req.session.usuarioLogueado) {
-      res.render('product-add', { usuario: req.session.usuarioLogueado });
-    } else {
-      res.redirect('/login');
-    }
+    res.render("product-add");
   }
+
 };
 
 module.exports = productController;
