@@ -1,4 +1,4 @@
-module.exports = function (sequelize, dataTypes) {
+module.exports = function (sequelize, DataTypes) {
     let alias = 'Comentario';
     let cols = {
         id: {

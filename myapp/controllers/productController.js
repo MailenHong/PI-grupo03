@@ -3,18 +3,55 @@ let Producto = db.Producto;
 
 const productController = {
 
-  list: function (req, res) {
-    db.Producto.findAll()
+  lista: function (req, res) {
+    db.Producto.findAll({
+    include: [{association:'usuario'}]
+  })
       .then(function(productos){
-        res.render("listadoDeProductos",{productos:productos})
+        res.render("listaDeProductos",{productos:productos})
       })
-  },
-  detalle: function (req, res) {
-    res.render('product', { producto: data.productos[0] });
+      .catch(error=>{
+        console.error(error);
+        res.status(500).send("Error no se puede obtener ningun producto");
+      });
+      
   },
 
+
+  detalle: function (req, res) {
+    Producto.findByPk(req.params.id,{
+      include:[
+        {association:'usuario'},
+        {
+          association:'comentarios',
+          include:[{association: 'usuario'}]
+        }
+      ]
+    })
+
+
+    .then(producto => {
+      if (producto) {
+        res.render('product', { producto });
+      } else {
+        res.status(404).send("Producto no encontrado");
+      }
+    })
+
+
+    .catch(error => {
+      console.error(error);
+      res.status(500).send("Error al cargar el producto");
+    });
+  },
+
+  
   agregarProducto: function (req, res) {
-    res.render('product-add', { usuario: data.usuario });
+    if (req.session.usuarioLogueado) {
+      res.render('product-add', { usuario: req.session.usuarioLogueado });
+    } else {
+      res.redirect('/login');
+    }
   }
 };
 
