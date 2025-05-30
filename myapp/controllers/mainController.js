@@ -4,7 +4,7 @@ let op = db.Sequelize.Op;
 const mainController = {
     index: function (req, res) {
         db.Producto.findAll({
-            include: [{ association: "usuarios" }]
+            include: [{ association: "usuario" }]
         })
 
         .then(function (resultados) {
