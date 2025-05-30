@@ -4,7 +4,7 @@ let Producto = db.Producto;
 const productController = {
 
   lista: function (req, res) {
-    db.Producto.findAll({
+  Producto.findAll({
     include: [{association:'usuario'}]
   })
       .then(function(productos){
@@ -41,7 +41,7 @@ const productController = {
 
     .catch(error => {
       console.error(error);
-      res.status(500).send("Error al cargar el producto");
+      res.status(500).send("Error en cargar el producto");
     });
   },
 
