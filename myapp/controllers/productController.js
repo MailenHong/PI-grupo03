@@ -36,8 +36,26 @@ detalle: function (req, res) {
 
   agregarProducto: function (req, res) {
     res.render("product-add");
+  },
+
+  comentarios:  function (req, res) {
+    if (req.session.user != undefined) {
+      let comentario = {
+        producto_id: req.params.id,
+        usuario_id: req.session.user.id,
+        texto: req.body.comentario
+      }
+      db.Comentario.create(comentario)
+      .then(function (resultados){
+        return res.redirect('/')
+      })
+    } else {
+      return res.render('login')
+    }
   }
 
 };
+
+  
 
 module.exports = productController;

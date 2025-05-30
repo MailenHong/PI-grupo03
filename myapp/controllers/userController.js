@@ -61,6 +61,7 @@ const userController = {
     };
      datos.Usuario.create(newUser)
       .then(function(results){
+        console.log("se creo usuario")
        return res.redirect('/users/login');
     })
     .catch(function(err){
@@ -91,7 +92,7 @@ showLogin: function(req, res){
       return res.render('login', {error} )
     }
 
-    let validacion = bcrypt.compareSync(contrasena, user.contrasena)
+    let validacion = bcryptjs.compareSync(contrasena, user.contrasena)
     if(!validacion){
       error.contrasena = "La contraseña es incorrecta";
       return res.render('login', {error})
@@ -101,7 +102,8 @@ showLogin: function(req, res){
     if (recordarme != undefined){
       res.cookie('user', user, {maxAge: 150000});
     }
-     return res.redirect('/perfil')
+    console.log('me logue')
+     return res.redirect('/')
   });
  }
 };
