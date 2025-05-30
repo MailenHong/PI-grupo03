@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
         usuario: {
             type: DataTypes.STRING(255),
         },
-        contraseña: {
+        contrasena: {
             type: DataTypes.STRING(255),
         },
         fecha: {

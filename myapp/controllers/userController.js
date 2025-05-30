@@ -1,5 +1,6 @@
 const datos = require('../database/models');
 const bcryptjs = require('bcryptjs');
+let session = require('express-session')
 
 const userController = {
   showRegister: function(req,res){
