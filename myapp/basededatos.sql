@@ -6,7 +6,7 @@ create table usuarios (
     id int unsigned auto_increment primary key,
     email varchar(255) not null unique,
     usuario varchar(255) not null,
-    contraseña varchar(255) not null,
+    contrasena varchar(255) not null,
     fecha date not null,
     dni int unsigned not null unique,
     fotodeperfil varchar(255),
@@ -42,7 +42,7 @@ create table comentarios (
 );
 
 
-insert into usuarios (email, usuario, contraseña, fecha, dni, fotodeperfil) values
+insert into usuarios (email, usuario, contrasena, fecha, dni, fotodeperfil) values
 ('mailen@email.com', 'mailen', 'maaai', '2006-06-14', 12345678, 'mailen.jpg'),
 ('paloma@email.com', 'paloma', 'paloo', '2004-12-31', 87654321, 'paloma.jpg'),
 ('clara@email.com', 'clara', 'claaaa', '2006-03-15', 23456789, 'clara.jpg'),
