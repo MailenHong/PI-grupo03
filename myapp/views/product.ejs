@@ -11,7 +11,12 @@
 
   <body class="product-page">
     <!-- Header -->
-    <%- include('./partials/header') %>
+		<% if (locals.user != undefined) { %> 
+                <%- include('./partials/headerLogueado') %> 
+        <% } else { %>
+                <%- include('./partials/header') %> 
+        <% } %>
+		<!-- /Header -->   
 
     <!-- Detalle del producto -->
     <div class="container products-wrapper">
@@ -51,9 +56,9 @@
                 <p>No hay comentarios todavía.</p>
               <% } %>
             </section>
-
+         
             <!-- Formulario para agregar comentario -->
-            <form class="form mt-4" action="" method="POST">
+            <form class="form mt-4" action="/product/agregarComentarios/<%- producto.id %>" method="POST">
               <input class="form-input w-100 mb-2" type="text" name="comentario" placeholder="Agregar comentario" required />
               <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
             </form>
@@ -63,6 +68,8 @@
       </div>
     </div>
     <!-- /Detalle del producto -->
+
+    
 
     <!-- Footer -->
     <%- include('./partials/footer') %>

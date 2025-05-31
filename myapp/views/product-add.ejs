@@ -14,33 +14,38 @@
 
 
     <body>
+
         <!-- Header -->
-        <%- include('./partials/headerLogueado', {usuario}) %>
-            <!-- Header -->
+		<% if (locals.user != undefined) { %> 
+                <%- include('./partials/headerLogueado') %> 
+        <% } else { %>
+                <%- include('./partials/header') %> 
+        <% } %>
+		<!-- /Header -->              
+         
+                        <!-- Novedades -->
+                        <div class="container products-wrapper">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="products-title">Agregar productos</h2>
+                                </div>
+                                <!-- Show the "ultimos" products -->
+                                <form class="body_register" action="/" method="get">
+                                    <div class="form-group">
+                                        <input type="file" name="" id="">
+                                        <input type="text" name="nombre" id="" placeholder="Nombre">
+                                        <input type="text" name="descripcion" id="descripcion"
+                                            placeholder="Descripcion">
+                                        <button class="btn1" type="submit">Enviar</button>
+                                    </div>
+                                </form>
 
 
-            <!-- Novedades -->
-            <div class="container products-wrapper">
-                <div class="row">
-                    <div class="col-12">
-                        <h2 class="products-title">Agregar productos</h2>
-                    </div>
-                    <!-- Show the "ultimos" products -->
-                    <form class="body_register" action="/" method="get">
-                        <div class="form-group">
-                            <input type="file" name="" id="">
-                            <input type="text" name="nombre" id="" placeholder="Nombre">
-                            <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion">
-                            <button class="btn1" type="submit">Enviar</button>
-                        </div>
-                    </form>
 
 
-
-
-                    <!-- Include Footer -->
-                    <%- include('./partials/footer') %>
-                        <!-- Include Footer -->
+                                <!-- Include Footer -->
+                                <%- include('./partials/footer') %>
+                                    <!-- Include Footer -->
     </body>
 
 

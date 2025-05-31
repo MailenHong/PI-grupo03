@@ -16,9 +16,22 @@ const mainController = {
     },
 
     searchResults: function (req, res) {
-        res.render('search-results', {
-            productos: datos.productos,
+        let productoBuscado = req.query.search;
+
+        db.Producto.findAll({
+            where: [
+                { nombre: { [op.like]: "%" + productoBuscado + "%" } }
+            ],
+            include: [{ association: "usuario" }]
         })
-    }
+       
+        .then(function (resultados) {
+            return res.render('search-results', { buscador: resultados })
+        })
+        .catch(function (error) {
+            return res.send(error);
+        })
+     }
 };
+
 module.exports = mainController;
