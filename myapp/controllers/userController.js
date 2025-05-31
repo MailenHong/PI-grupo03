@@ -5,7 +5,7 @@ let session = require('express-session')
 const userController = {
   showRegister: function(req,res){
     if (req.session.usuario !== undefined){
-      return res.redirect('/profile' + req.session.usuario.id)
+      return res.redirect('/users/profile/' + req.session.usuario.id)
     } else {
       return res.render('register', {error: {}} );
     }
@@ -101,9 +101,32 @@ showLogin: function(req, res){
     if (recordarme != undefined){
       res.cookie('user', user, {maxAge: 150000});
     }
-     return res.redirect('/perfil')
+     return res.redirect('/users/profile/' + req.session.usuario.id)
   });
- }
+ },
+
+profile: function (req, res) {
+  if (!req.session.usuario) {
+    return res.redirect('/users/login');
+  }
+let userId = req.session.usuario.id;
+
+  datos.Usuario.findByPk(userId, {
+    include: [{ association: 'productos',
+      include:[{association: 'comentarios'}]
+     }]
+  })
+  .then(function (usuario) {
+    res.render("profile", {
+      usuario: usuario,
+      productos: usuario.productos,
+      total: usuario.productos.length
+    });
+  })
+  .catch(function (error) {
+    res.send("Error al obtener perfil del usuario");
+  });
+},
 };
 
   

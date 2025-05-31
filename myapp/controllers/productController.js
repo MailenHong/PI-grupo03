@@ -25,9 +25,9 @@ detalle: function (req, res) {
     ]
   })
   .then(function (producto) {
-  res.render("product", {
-  producto: producto,
-  usuario: req.session.user});
+    res.render("product", {
+      producto: producto,
+      usuario: req.session.usuario});
 })
   .catch(function (error) {
     res.send("Error de obtener el producto");
