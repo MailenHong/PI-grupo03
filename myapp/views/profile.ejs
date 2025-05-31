@@ -14,8 +14,13 @@
 
 	<body>
 		<!-- Header -->
-		<%- include('./partials/headerLogueado', {usuario}) %>
-			<!-- /Header -->
+		<% if (locals.user != undefined) { %> 
+                <%- include('./partials/headerLogueado') %> 
+        <% } else { %>
+                <%- include('./partials/header') %> 
+        <% } %>
+		<!-- /Header -->   
+
 
 			<!-- Datos del usuario -->
 			<section class="info-usuario container products-wrapper">
@@ -27,9 +32,6 @@
 						<div class="d-flex align-items-center ">
 							<h1 class="main-title">
 								<%= usuario.usuario %>
-									<a href="profile-edit.html">
-										<i class="fas fa-cog"></i>
-									</a>
 							</h1>
 							<a class="btn mt-3 ml-4" href="">SEGUIR</a>
 						</div>

@@ -39,18 +39,21 @@ detalle: function (req, res) {
   },
 
   comentarios:  function (req, res) {
+    
     if (req.session.user != undefined) {
-      let comentario = {
-        producto_id: req.params.id,
+    db.Comentario.create({ 
+	      producto_id: req.params.id,
         usuario_id: req.session.user.id,
         texto: req.body.comentario
-      }
-      db.Comentario.create(comentario)
-      .then(function (resultados){
-        return res.redirect('/')
-      })
+    })
+    .then(function (){
+      return res.redirect('/')
+    })
+    .catch(function (error) {
+      res.send("Ocurrió un error al guardar el comentario.");
+    });
     } else {
-      return res.render('login')
+      return res.redirect('/login')
     }
   }
 
