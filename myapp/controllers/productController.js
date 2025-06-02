@@ -35,8 +35,14 @@ detalle: function (req, res) {
 },
 
   agregarProducto: function (req, res) {
-    res.render("product-add");
+    
+    if (req.session.usuario !== undefined) {
+      return res.render("product-add");
+    } else {
+      return res.render('/', { error: {} });
+    }
   },
+
 
   comentarios:  function (req, res) {
     
@@ -55,8 +61,20 @@ detalle: function (req, res) {
     } else {
       return res.redirect('/login')
     }
-  }
+  },
+  
+  procesarProducto: function (req, res) {
+    db.Producto.create({
+      usuario_id: req.session.usuario.id,
+      imagen: req.body.imagen,
+      nombre: req.body.nombre,
+      descripcion: req.body.descripcion,
+    })
+      .then(function () {
+        return res.redirect('/users/profile/' + req.session.usuario.id)
+      })
 
+  },
 };
 
   

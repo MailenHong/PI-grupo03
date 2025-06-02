@@ -108,27 +108,28 @@ showLogin: function(req, res){
  },
 
 profile: function (req, res) {
-  if (!req.session.usuario) {
-    return res.redirect('/users/login');
-  }
-let userId = req.session.usuario.id;
 
-  datos.Usuario.findByPk(userId, {
-    include: [{ association: 'productos',
-      include:[{association: 'comentarios'}]
-     }]
-  })
-  .then(function (usuario) {
-    res.render("profile", {
-      usuario: usuario,
-      productos: usuario.productos,
-      total: usuario.productos.length
-    });
-  })
-  .catch(function (error) {
-    res.send("Error al obtener perfil del usuario");
-  });
-},
+    let userId = req.params.id;
+
+    datos.Usuario.findByPk(userId, {
+      include: [{
+        association: 'productos',
+        include: [{ association: 'comentarios' }]
+      }, {association: 'comentarios'}
+     ]
+    })
+      .then(function (usuario) {
+        res.render("profile", {
+          usuario: usuario,
+          productos: usuario.productos,
+          total: usuario.productos.length
+        });
+      })
+      .catch(function (error) {
+        res.send("Error al obtener perfil del usuario");
+      });
+  },
+  
 logout: function(req,res){
   req.session.destroy()
   if (req.cookies.user != undefined){
