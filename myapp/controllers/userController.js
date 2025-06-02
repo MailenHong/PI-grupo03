@@ -18,6 +18,7 @@ const userController = {
     let contrasena = req.body.contrasena;
     let fecha = req.body.fecha;
     let dni = req.body.dni;
+    let fotodeperfil = req.body.fotodeperfil;
     let error = {};
     let existenErrores = false;
 
@@ -59,6 +60,7 @@ const userController = {
       contrasena: bcryptjs.hashSync(contrasena,10),
       fecha: fecha,
       dni: dni,
+      fotodeperfil : fotodeperfil,
     };
      datos.Usuario.create(newUser)
       .then(function(results){
