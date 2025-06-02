@@ -58,7 +58,7 @@
             </section>
          
             <!-- Formulario para agregar comentario -->
-            <form class="form mt-4" action="/product/agregarComentarios/<%- producto.id %>" method="POST">
+            <form class="form mt-4" action="/product/agregarComentarios/<%= producto.id %>" method="POST">
               <input class="form-input w-100 mb-2" type="text" name="comentario" placeholder="Agregar comentario" required />
               <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
             </form>

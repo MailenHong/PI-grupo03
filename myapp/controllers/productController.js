@@ -44,24 +44,23 @@ detalle: function (req, res) {
   },
 
 
-  comentarios:  function (req, res) {
-    
-    if (req.session.user != undefined) {
-    db.Comentario.create({ 
-	      producto_id: req.params.id,
-        usuario_id: req.session.user.id,
+  comentarios: function (req, res) {
+    if (req.session.usuario != undefined) {
+      db.Comentario.create({
+        producto_id: req.params.id,
+        usuario_id: req.session.usuario.id,
         texto: req.body.comentario
-    })
-    .then(function (){
-      return res.redirect('/')
-    })
-    .catch(function (error) {
-      res.send("Ocurrió un error al guardar el comentario.");
-    });
+      })
+        .then(function () {
+          return res.redirect('/product/detalle/' + req.params.id)
+        })
+
+
     } else {
-      return res.redirect('/login')
+      return res.redirect('/users/login')
     }
   },
+
   
   procesarProducto: function (req, res) {
     db.Producto.create({

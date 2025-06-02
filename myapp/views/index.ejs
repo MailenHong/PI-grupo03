@@ -46,10 +46,14 @@
                                                         <%= data[i].nombre %>
                                                     </h1>
                                                     <h2>
-                                                        <a href="/users/profile/<%= data[i].usuario.id %>">
+                                                        <a href="/users/profile<%= data[i].usuario.id %>">
                                                             <%= data[i].usuario.usuario %>
                                                         </a>
                                                     </h2>
+                                                     <h3>
+                                                        <%= data[i].comentarios.length %>
+                                                    </h3>
+
 
                                                 </article>
                                             </a>

@@ -26,33 +26,40 @@
 				<div class="row">
 					
 					<!-- Show the "ultimos" products -->
-					<% if (buscador.length <=0) { %>
-						<div class="col-12">
-							<h2 class="products-title">No hay resultados de búsqueda</h2>
-						</div>
+					<% if (data.length <=0) { %>
+                        <div class="col-12">
+                            <h2 class="products-title">No hay resultados de búsqueda para <%= busqueda %></h2>
+                        </div>
 
-						<% } else { %>
-							<%for( let i=0; i < buscador.length; i++ ) { %>
-								<div class="col-12">
-						<h2 class="products-title">Resultados de búsqueda</h2>
-					</div>
-								<div class="col-12 col-sm-6 col-lg-3">
-									<section class="product-box">
-										<a href="/product/detalle/<%= buscador[i].id %>">
-											<figure class="product-box_image">
-												<img src="/images/products/<%= buscador[i].imagen %>"
-													alt="<%= buscador[i].nombre %>">
-											</figure>
-											<article class="product-box_data">
-												<p>
-													<%= buscador[i].descripcion %>
-												</p>
-											</article>
-										</a>
-									</section>
-								</div>
-								<% } %>
-									<% } %>
+
+                        <% } else { %>
+                             <% for( let i=0; i < data.length; i++ ) { %>
+                                    <div class="col-12 col-sm-6 col-lg-3">
+                                        <section class="product-box">
+                                            <a href="/product/detalle/<%= data[i].id %>">
+                                                <figure class="product-box_image">
+                                                    <img src="/images/products/<%= data[i].imagen %>"
+                                                        alt="<%= data[i].nombre %>">
+                                                </figure>
+                                                <article class="product-box_data">
+                                                    <h1>
+                                                        <%= data[i].nombre %>
+                                                    </h1>
+                                                    <h2>
+                                                        <a href="/users/profile/<%= data[i].usuario.id %>">
+                                                            <%= data[i].usuario.usuario %>
+                                                        </a>
+                                                    </h2>
+                                                    <h3>
+                                                        <%= data[i].comentarios.length %>
+                                                    </h3>
+                                                </article>
+                                            </a>
+                                        </section>
+                                    </div>
+                                    <% } %>
+                                    <% } %>
+
 
 
 								<%- include('./partials/footer') %>
