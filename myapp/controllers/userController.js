@@ -128,10 +128,6 @@ let userId = req.session.usuario.id;
     res.send("Error al obtener perfil del usuario");
   });
 },
-    console.log('me logue')
-     return res.redirect('/')
-  });
- }
 };
 
   
