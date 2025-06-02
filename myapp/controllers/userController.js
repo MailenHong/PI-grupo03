@@ -2,6 +2,7 @@ const datos = require('../database/models');
 const bcryptjs = require('bcryptjs');
 
 
+
 const userController = {
   showRegister: function(req,res){
     if (req.session.usuario !== undefined){
