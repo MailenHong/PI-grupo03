@@ -1,6 +1,6 @@
 const datos = require('../database/models');
 const bcryptjs = require('bcryptjs');
-let session = require('express-session')
+
 
 const userController = {
   showRegister: function(req,res){
@@ -128,10 +128,15 @@ let userId = req.session.usuario.id;
     res.send("Error al obtener perfil del usuario");
   });
 },
-    console.log('me logue')
-     return res.redirect('/')
-  });
- }
+logout: function(req,res){
+  req.session.destroy()
+  if (req.cookies.user != undefined){
+    res.clearCookie('user')
+  }
+  res.redirect('/')
+}
+
+  
 };
 
   
