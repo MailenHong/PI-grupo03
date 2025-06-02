@@ -58,11 +58,17 @@
 								<div class="form-group">
 									<label for="date">Fecha de nacimiento: </label>
 									<input type="date" name="fecha" id="date" required>
+									<% if (error.fecha) { %>
+										<p class = "error"></p><%= error.fecha %>
+									   <% } %>
 								</div>
 								<div class="form-group">
 									<label for="documento">Documento: </label>
 									<input type="number" name="dni" id="documento" placeholder="Documento"
 										required>
+										<% if (error.dni) { %>
+											<p class = "error"></p><%= error.dni %>
+										   <% } %>
 								</div>
 							<!--	<div class="form-group">
 									<label for="fotoPerfil">Foto de perfil: </label>
