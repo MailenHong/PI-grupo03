@@ -42,14 +42,14 @@
                                                         alt="<%= data[i].nombre %>">
                                                 </figure>
                                                 <article class="product-box_data">
-                                                    <h1>
-                                                        <%= data[i].nombre %>
-                                                    </h1>
                                                     <h2>
+                                                        <%= data[i].nombre %>
+                                                    </h2>
+                                                    <p>
                                                         <a href="/users/profile/<%= data[i].usuario.id %>">
                                                             <%= data[i].usuario.usuario %>
                                                         </a>
-                                                    </h2>
+                                                    </p>
                                                     <h3>
                                                         <%= data[i].comentarios.length %>
                                                     </h3>
