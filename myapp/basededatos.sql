@@ -8,7 +8,7 @@ create table usuarios (
     usuario varchar(255) not null,
     contrasena varchar(255) not null,
     fecha date not null,
-    dni int unsigned not null,
+    dni int not null,
     fotodeperfil varchar(255),
     createdAt timestamp default current_timestamp,
     updatedAt timestamp default current_timestamp on update current_timestamp,
